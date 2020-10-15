@@ -17,6 +17,6 @@
   "config": {
     "DOMAIN": "sandbox047c17f167b742be8adb436c658c1d6c.mailgun.org",
     "API_KEY": "2610633c3abcfe6cf1116efcda729876-2fbe671d-7b0ce34e",
-    "file_path": "./templates/goldmembershipemail.html"
+    "file_path": "./templates/benefitForVerifyDoctorsEmail.html"
   }
 }
