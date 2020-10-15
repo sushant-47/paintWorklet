@@ -1,0 +1,22 @@
+{
+  "name": "schedule-mail",
+  "version": "1.0.0",
+  "description": "test mail template",
+  "main": "index.js",
+  "dependencies": {
+    "gulp-mailgun": "0.0.7",
+    "mailgun-js": "^0.22.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "sushant",
+  "license": "ISC",
+  "config": {
+    "DOMAIN": "sandbox047c17f167b742be8adb436c658c1d6c.mailgun.org",
+    "API_KEY": "2610633c3abcfe6cf1116efcda729876-2fbe671d-7b0ce34e",
+    "file_path": "./templates/goldmembershipemail.html"
+  }
+}
