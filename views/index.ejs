@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<link rel="icon" href="/static/images/paint.jpeg" />
+		<title> Paint Worklet </title>
+		<style type="text/css" id="helpers">
+			body {
+				zoom: 1;
+			}
+			@keyframes march-anim {
+				0% {
+					--march-offset: 0;
+				}
+				50% {
+					--march-offset: 8;
+				}
+				100% {
+					--march-offset: 16;
+				}
+			}
+			.fs-30 {
+				font-size: 30px;
+			}
+			.fs-16 {
+				font-size: 16px;
+			}
+			.flex {
+				display: flex;
+			}
+			.flex-row {
+				flex-direction: row;
+			}
+			.flex-align--stretch {
+				align-items: stretch;
+			}
+			.mar-l-16 {
+				margin-left: 16px;
+			}
+			.mar-l-90 {
+				margin-left: 90px;
+			}
+			.inline-block {
+				display: inline-block;
+			}
+		</style>
+		<style type="text/css" id="paint-css">
+			.header-bg, .circles {
+				min-height: 100px;
+				text-align: center;
+			}
+			.march {
+				animation: march-anim 0.4s ease-in infinite;
+				background-image: paint(marchDash);
+			}
+			.circles {
+				min-height: 200px;
+				min-width: 200px;
+				background-image: paint(radialCircle);
+			}
+			.bubbles, .pattern {
+				flex-grow: 1;
+			}
+			.bubbles {
+				min-height: 300px;
+				background-image: paint(gradient);
+			}
+			.pattern {
+				--pst-pattern: "url('')";
+				background-image: paint(imagePattern);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="flex flex-row">
+			<div class="header-bg fs-30">
+				<div>Hello Text</div>
+				<div class="march inline-block"> selected area </div>
+			</div>
+			<div class="circles fs-30 mar-l-16">
+				Pokemon area
+			</div>
+			<div class="mar-l-90 bubbles"></div>
+			<div class="mar-l-90 pattern"></div>
+		</div>
+		<script src="/static/scripts/marching-border-worklet.js" type="module"></script>
+		<script src="/static/scripts/transparency-worklet.js" type="module"></script>
+		<script src="/static/scripts/gradients-worklet.js" type="module"></script>
+		<!-- <script src="/static/scripts/image-pattern-worklet.js" type="module"></script> -->
+	</body>
+</html>
