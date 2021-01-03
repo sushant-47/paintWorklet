@@ -5,6 +5,15 @@
 		<style type="text/css" id="helpers">
 			body {
 				zoom: 1;
+				/* --clock-hour: 20; */
+			}
+			.contain {
+				max-width: 1250px;
+				margin: 0 auto;
+			}
+			.contain .child {
+				min-width: 300px;
+				min-height: 300px;
 			}
 			@keyframes march-anim {
 				0% {
@@ -34,6 +43,9 @@
 			}
 			.mar-l-16 {
 				margin-left: 16px;
+			}
+			.mar-l-36 {
+				margin-left: 36px;
 			}
 			.mar-l-90 {
 				margin-left: 90px;
@@ -70,10 +82,18 @@
 			.shadow {
 				background-image: paint(shadow);
 			}
+			.transform {
+				background-image: paint(transformer);
+			}
+			.clock {
+				/* --clock-hour: 20; */
+				animation: time 60s ease-in infinite ;
+				background-image: paint(clock);
+			}
 		</style>
 	</head>
 	<body>
-		<div class="flex flex-row">
+		<div class="flex flex-row contain">
 			<div class="header-bg fs-30">
 				<div>Hello Text</div>
 				<div class="march inline-block"> selected area </div>
@@ -83,12 +103,31 @@
 			</div>
 			<div class="mar-l-90 bubbles grow"></div>
 			<!-- <div class="mar-l-90 pattern grow"></div> -->
-			<div class="mar-l-90 shadow grow"></div>
+			<div class="mar-l-36 shadow grow"></div>
+			<div class="mar-l-36 transform grow child"></div>
 		</div>
+		<div class="flex flex-row contain">
+			<div class="clock grow child"></div>
+		</div>
+		<script type="application/javascript">
+			var date = new Date();
+			var el = document.querySelector('.clock');
+			el.style.setProperty('--clock-hour', date.getHours());
+			el.style.setProperty('--clock-min', date.getMinutes());
+			el.style.setProperty('--clock-sec', date.getSeconds());
+			setInterval(function() {
+				var date = new Date();
+				el.style.setProperty('--clock-hour', date.getHours());
+				el.style.setProperty('--clock-min', date.getMinutes());
+				el.style.setProperty('--clock-sec', date.getSeconds());
+			}, 1000);
+		</script>
 		<script src="/static/scripts/marching-border-worklet.js" type="module"></script>
 		<script src="/static/scripts/transparency-worklet.js" type="module"></script>
 		<script src="/static/scripts/gradients-worklet.js" type="module"></script>
 		<script src="/static/scripts/shadow-worklet.js" type="module"></script>
+		<script src="/static/scripts/transformation-worklet.js" type="module"></script>
+		<script src="/static/scripts/clock-worklet.js" type="module"></script>
 		<!-- <script src="/static/scripts/image-pattern-worklet.js" type="module"></script> -->
 	</body>
 </html>

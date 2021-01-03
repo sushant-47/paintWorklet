@@ -7,9 +7,9 @@ function shadowWorker() {
 			return [];
 		}
 		paint(ctx, size, props) {
-			ctx.shadowOffsetX = 3;
-			ctx.shadowOffsetY = 3;
-			ctx.shadowBlur = 4;
+			ctx.shadowOffsetX = 5;
+			ctx.shadowOffsetY = 5;
+			ctx.shadowBlur = 20;
 			ctx.shadowColor = 'rgba(0, 0, 0, 0.6)';
 			// ctx.fillText("Hello World", 20, 20);  // function not in PaintWorkletContext2D
 			ctx.fillStyle = 'yellow';
