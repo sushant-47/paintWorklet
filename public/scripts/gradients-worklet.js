@@ -2,14 +2,11 @@
 /* define the worklet */
 /* draws gradient as a fill or stroke style of an element */
 function gradientWorker() {
-	let we = this;
-	console.log(we)
 	class gradient {
 		static get inputProperties() {
 			return [];
 		}
 		paint(ctx, size, props) {
-			// console.log(Image);
 			var lingrad = ctx.createLinearGradient(0, 0, 60, 60);
 			lingrad.addColorStop(0, '#00ABEB');
 			lingrad.addColorStop(0.5, '#fff');
