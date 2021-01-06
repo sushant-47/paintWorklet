@@ -112,14 +112,15 @@
 		<script type="application/javascript">
 			var date = new Date();
 			var el = document.querySelector('.clock');
-			el.style.setProperty('--clock-hour', date.getHours());
-			el.style.setProperty('--clock-min', date.getMinutes());
-			el.style.setProperty('--clock-sec', date.getSeconds());
+			var style = el.style;
+			style.setProperty('--clock-hour', date.getHours());
+			style.setProperty('--clock-min', date.getMinutes());
+			style.setProperty('--clock-sec', date.getSeconds());
 			setInterval(function() {
 				var date = new Date();
-				el.style.setProperty('--clock-hour', date.getHours());
-				el.style.setProperty('--clock-min', date.getMinutes());
-				el.style.setProperty('--clock-sec', date.getSeconds());
+				style.setProperty('--clock-hour', date.getHours());
+				style.setProperty('--clock-min', date.getMinutes());
+				style.setProperty('--clock-sec', date.getSeconds());
 			}, 1000);
 		</script>
 		<script src="/static/scripts/marching-border-worklet.js" type="module"></script>
