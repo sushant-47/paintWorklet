@@ -69,7 +69,7 @@
 				background-image: paint(radialCircle);
 			}
 			.grow {
-				flex-grow: 1;
+				flex: 1 0;
 			}
 			.bubbles {
 				min-height: 300px;
@@ -104,24 +104,22 @@
 			<div class="mar-l-90 bubbles grow"></div>
 			<!-- <div class="mar-l-90 pattern grow"></div> -->
 			<div class="mar-l-36 shadow grow"></div>
-			<div class="mar-l-36 transform grow child"></div>
-		</div>
-		<div class="flex flex-row contain">
 			<div class="clock grow child"></div>
 		</div>
+		<div class="flex flex-row contain">
+			<div class="mar-l-36 transform grow child"></div>
+		</div>
 		<script type="application/javascript">
-			var date = new Date();
 			var el = document.querySelector('.clock');
 			var style = el.style;
-			style.setProperty('--clock-hour', date.getHours());
-			style.setProperty('--clock-min', date.getMinutes());
-			style.setProperty('--clock-sec', date.getSeconds());
-			setInterval(function() {
+			requestAnimationFrame(setTime);
+			function setTime() {
 				var date = new Date();
 				style.setProperty('--clock-hour', date.getHours());
 				style.setProperty('--clock-min', date.getMinutes());
 				style.setProperty('--clock-sec', date.getSeconds());
-			}, 1000);
+				requestAnimationFrame(setTime);
+			}
 		</script>
 		<script src="/static/scripts/marching-border-worklet.js" type="module"></script>
 		<script src="/static/scripts/transparency-worklet.js" type="module"></script>
