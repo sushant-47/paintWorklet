@@ -112,14 +112,21 @@
 		<script type="application/javascript">
 			var el = document.querySelector('.clock');
 			var style = el.style;
-			requestAnimationFrame(setTime);
+			// requestAnimationFrame(setTime);
+			// by using only rAf repeatedly; 60fps is achieved
+			// the frame rate can be throttled by using setInterval or setTimeout with rAf;  here it's 3.3fps
+			// we only need to update second hand every second
 			function setTime() {
 				var date = new Date();
 				style.setProperty('--clock-hour', date.getHours());
 				style.setProperty('--clock-min', date.getMinutes());
 				style.setProperty('--clock-sec', date.getSeconds());
-				requestAnimationFrame(setTime);
+				console.log("time :", date.getSeconds());
+				// requestAnimationFrame(setTime);
 			}
+			setInterval(function() {
+				requestAnimationFrame(setTime);
+			}, 300);
 		</script>
 		<script src="/static/scripts/marching-border-worklet.js" type="module"></script>
 		<script src="/static/scripts/transparency-worklet.js" type="module"></script>
