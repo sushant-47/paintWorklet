@@ -38,6 +38,9 @@
 			.flex-row {
 				flex-direction: row;
 			}
+			.flex-column {
+				flex-direction: column;
+			}
 			.flex-align--stretch {
 				align-items: stretch;
 			}
@@ -124,7 +127,7 @@
 				console.log("time :", date.getSeconds());
 				// requestAnimationFrame(setTime);
 			}
-			setInterval(function() {
+			var intervalid = setInterval(function() {
 				requestAnimationFrame(setTime);
 			}, 300);
 		</script>
