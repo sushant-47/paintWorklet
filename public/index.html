@@ -1,0 +1,142 @@
+<html>
+	<head>
+		<link rel="icon" href="/static/images/paint.jpeg" />
+		<title> Paint Worklet </title>
+		<style type="text/css" id="helpers">
+			body {
+				zoom: 1;
+				/* --clock-hour: 20; */
+			}
+			.contain {
+				max-width: 1250px;
+				margin: 0 auto;
+			}
+			.contain .child {
+				min-width: 300px;
+				min-height: 300px;
+			}
+			@keyframes march-anim {
+				0% {
+					--march-offset: 0;
+				}
+				50% {
+					--march-offset: 8;
+				}
+				100% {
+					--march-offset: 16;
+				}
+			}
+			.fs-30 {
+				font-size: 30px;
+			}
+			.fs-16 {
+				font-size: 16px;
+			}
+			.flex {
+				display: flex;
+			}
+			.flex-row {
+				flex-direction: row;
+			}
+			.flex-column {
+				flex-direction: column;
+			}
+			.flex-align--stretch {
+				align-items: stretch;
+			}
+			.mar-l-16 {
+				margin-left: 16px;
+			}
+			.mar-l-36 {
+				margin-left: 36px;
+			}
+			.mar-l-90 {
+				margin-left: 90px;
+			}
+			.inline-block {
+				display: inline-block;
+			}
+		</style>
+		<style type="text/css" id="paint-css">
+			.header-bg, .circles {
+				min-height: 100px;
+				text-align: center;
+			}
+			.march {
+				animation: march-anim 0.4s ease-in infinite;
+				background-image: paint(marchDash);
+			}
+			.circles {
+				min-height: 200px;
+				min-width: 200px;
+				background-image: paint(radialCircle);
+			}
+			.grow {
+				flex: 1 0;
+			}
+			.bubbles {
+				min-height: 300px;
+				background-image: paint(gradient);
+			}
+			.pattern {
+				--pst-pattern: "url('')";
+				background-image: paint(imagePattern);
+			}
+			.shadow {
+				background-image: paint(shadow);
+			}
+			.transform {
+				background-image: paint(transformer);
+			}
+			.clock {
+				/* --clock-hour: 20; */
+				animation: time 60s ease-in infinite ;
+				background-image: paint(clock);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="flex flex-row contain">
+			<div class="header-bg fs-30">
+				<div>Hello Text</div>
+				<div class="march inline-block"> selected area </div>
+			</div>
+			<div class="circles fs-30 mar-l-16">
+				Pokemon area
+			</div>
+			<div class="mar-l-90 bubbles grow"></div>
+			<!-- <div class="mar-l-90 pattern grow"></div> -->
+			<div class="mar-l-36 shadow grow"></div>
+			<div class="clock grow child"></div>
+		</div>
+		<div class="flex flex-row contain">
+			<div class="mar-l-36 transform grow child"></div>
+		</div>
+		<script type="application/javascript">
+			var el = document.querySelector('.clock');
+			var style = el.style;
+			// requestAnimationFrame(setTime);
+			// by using only rAf repeatedly; 60fps is achieved
+			// the frame rate can be throttled by using setInterval or setTimeout with rAf;  here it's 3.3fps
+			// we only need to update second hand every second
+			function setTime() {
+				var date = new Date();
+				style.setProperty('--clock-hour', date.getHours());
+				style.setProperty('--clock-min', date.getMinutes());
+				style.setProperty('--clock-sec', date.getSeconds());
+				console.log("time :", date.getSeconds());
+				// requestAnimationFrame(setTime);
+			}
+			var intervalid = setInterval(function() {
+				requestAnimationFrame(setTime);
+			}, 300);
+		</script>
+		<script src="/static/scripts/marching-border-worklet.js" type="module"></script>
+		<script src="/static/scripts/transparency-worklet.js" type="module"></script>
+		<script src="/static/scripts/gradients-worklet.js" type="module"></script>
+		<script src="/static/scripts/shadow-worklet.js" type="module"></script>
+		<script src="/static/scripts/transformation-worklet.js" type="module"></script>
+		<script src="/static/scripts/clock-worklet.js" type="module"></script>
+		<!-- <script src="/static/scripts/image-pattern-worklet.js" type="module"></script> -->
+	</body>
+</html>
