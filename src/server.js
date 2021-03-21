@@ -25,7 +25,7 @@ router.get("/test", function(req, res, next) {
 // 	res.render("index", {title: "Home Page"});
 // });
 
-app.use('.netlify/functions/view', router);
+app.use('/.netlify/functions/view', router);
 // app.use(clientErrorHandler);
 // function clientErrorHandler (err, req, res, next) {
 // 	console.log("error : ", err);
