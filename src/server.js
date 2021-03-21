@@ -4,8 +4,8 @@ const path = require('path');
 const app = express();
 const serverless = require('serverless-http');
 
-// app.set('views', path.join(__dirname, 'views'));
-// app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
 // app.use(function(req, res, next) {
 // 	console.log("request intercepted : ", req.method, " ", req.path);
@@ -21,9 +21,9 @@ router.get("/test", function(req, res, next) {
   res.end();
 });
 
-// router.get("/index", function(req, res, next) {
-// 	res.render("index", {title: "Home Page"});
-// });
+router.get("/index", function(req, res, next) {
+	res.render("index", {title: "Home Page"});
+});
 
 app.use('/.netlify/functions/server', router);
 // app.use(clientErrorHandler);
