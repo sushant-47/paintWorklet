@@ -26,7 +26,7 @@ router.get("/index", function(req, res, next) {
 });
 
 app.use('/.netlify/functions/server', router);
-app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+// app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
 
 // app.use(clientErrorHandler);
 // function clientErrorHandler (err, req, res, next) {
