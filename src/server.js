@@ -14,6 +14,12 @@ app.use(function(req, res, next) {
 
 app.use('/static', express.static(path.join(__dirname, './public')));
 
+app.get(".netlify/functions/test", function(req, res, next) {
+	res.json({
+		"hello": "world"
+	});
+});
+
 app.get(".netlify/functions/index", function(req, res, next) {
 	res.render("index", {title: "Home Page"});
 });
