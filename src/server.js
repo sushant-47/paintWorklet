@@ -37,4 +37,5 @@ app.use('.netlify/functions/view', router);
 // 	next();
 // }
 
+module.exports = app;
 module.exports.handler = serverless(app);
