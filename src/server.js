@@ -4,8 +4,8 @@ const path = require('path');
 const app = express();
 const serverless = require('serverless-http');
 
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
+// app.set('views', path.join(__dirname, 'views'));
+// app.set('view engine', 'ejs');
 
 // app.use(function(req, res, next) {
 // 	console.log("request intercepted : ", req.method, " ", req.path);
@@ -26,6 +26,8 @@ router.get("/index", function(req, res, next) {
 });
 
 app.use('/.netlify/functions/server', router);
+app.use('/', (req, res) => res.sendFile(path.join(__dirname, '../index.html')));
+
 // app.use(clientErrorHandler);
 // function clientErrorHandler (err, req, res, next) {
 // 	console.log("error : ", err);
