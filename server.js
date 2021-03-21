@@ -1,5 +1,5 @@
 const global_path = '/Users/kakroo/.nvm/versions/node/v12.2.0/lib/node_modules';
-const express = require(global_path + '/express');
+const express = require('express');
 const path = require('path');
 const app = express();
 
