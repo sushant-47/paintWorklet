@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<link rel="icon" href="/static/images/paint.jpeg" />
+		<link rel="icon" href="/paintWorklet/public/images/paint.jpeg" />
 		<title> Paint Worklet main </title>
 		<style type="text/css" id="helpers">
 			body {
@@ -124,7 +124,7 @@
 				style.setProperty('--clock-hour', date.getHours());
 				style.setProperty('--clock-min', date.getMinutes());
 				style.setProperty('--clock-sec', date.getSeconds());
-				console.log("time :", date.getSeconds());
+				// console.log("time :", date.getSeconds());
 				// requestAnimationFrame(setTime);
 			}
 			var intervalid = setInterval(function() {
@@ -134,9 +134,9 @@
 		<script src="/paintWorklet/public/scripts/marching-border-worklet.js" type="module"></script>
 		<script src="/paintWorklet/public/scripts/transparency-worklet.js" type="module"></script>
 		<script src="/paintWorklet/public/scripts/gradients-worklet.js" type="module"></script>
-		<script src="/public/scripts/shadow-worklet.js" type="module"></script>
-		<script src="/static/scripts/transformation-worklet.js" type="module"></script>
-		<script src="/static/scripts/clock-worklet.js" type="module"></script>
+		<script src="/paintWorklet/public/scripts/shadow-worklet.js" type="module"></script>
+		<script src="/paintWorklet/public/scripts/transformation-worklet.js" type="module"></script>
+		<script src="/paintWorklet/public/scripts/clock-worklet.js" type="module"></script>
 		<!-- <script src="/static/scripts/image-pattern-worklet.js" type="module"></script> -->
 	</body>
 </html>
